@@ -7,6 +7,7 @@ import axios from 'axios';
 const Home = () => {
   const [data, setData] = useState([]);
 
+  //GET METHOD
   const loadData = async () => {
     const response = await axios.get("http://localhost:5000/api/get");
     setData(response.data);
@@ -16,6 +17,7 @@ const Home = () => {
     loadData();
   }, [])
   
+  //DELETE METHOD
   const deleteContact = (id) => {
     if(window.confirm("Are you sure you want to delete the contact?")) {
       axios.delete(`http://localhost:5000/api/remove/${id}`);

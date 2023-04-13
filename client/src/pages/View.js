@@ -8,6 +8,7 @@ const View = () => {
 
     const {id} = useParams();
 
+    // GET USER INFORMATION USING THE ID
     useEffect(() => {
         axios.get(`http://localhost:5000/api/get/${id}`)
         .then((resp) => setUser({...resp.data[0] }));

@@ -16,6 +16,7 @@ const AddEdit = () => {
     const navigate = useNavigate();
     const { id } = useParams();
 
+    // GET USER INFORMATION USING THE ID
     useEffect(() => {
       axios.get(`http://localhost:5000/api/get/${id}`)
       .then((resp) => setState({...resp.data[0] }));
@@ -27,6 +28,7 @@ const AddEdit = () => {
         if(!name || !email || !contact) {
             toast.error("Please provide value into each input field");
         } else {
+            // POST METHOD 
             if (!id) {
                 axios.post("http://localhost:5000/api/post", {
                     name,
@@ -39,6 +41,7 @@ const AddEdit = () => {
                 .catch((err) => toast.error(err.response.data));
             toast.success("Contact added successfully")
             } else {
+                // UPDATE METHOD USING ID
                 axios.put(`http://localhost:5000/api/update/${id}`, {
                     name,
                     email,

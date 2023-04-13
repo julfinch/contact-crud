@@ -49,7 +49,7 @@ app.delete("/api/remove/:id", (req, res) => {
     });
 });
 
-// 9. UPDATE METHOD - GETTING THE ID FIRST
+// 9. GETTING THE ID FIRST BEFORE UPDATING
 app.get("/api/get/:id", (req, res) => {
     const { id } = req.params;
     const sqlGet = "SELECT * FROM contact_db WHERE id = ?";
@@ -61,7 +61,7 @@ app.get("/api/get/:id", (req, res) => {
     });
 });
 
-// 10. UPDATE METHOD - GETTING THE ID FIRST
+// 10. UPDATE METHOD
 app.put("/api/update/:id", (req, res) => {
     const { id } = req.params;
     const { name, email, contact } = req.body
